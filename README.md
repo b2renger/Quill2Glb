@@ -18,11 +18,14 @@ That is :
 - Install into blender
     - Edit -> Preferences
     - GoTo Addon tab, and install from Disk
-    - ![blender addon screen](images/blender-addon.png)
+    - Blender addon screen
+        ![blender addon screen](images/blender-addon.png).
     - Select the zip file
 - Import Quill scene (use quill_scene_fire provided the first time)
-    - ![blender import screen](images/import_quill.png)
-    - ![blender quill.json screen](images/import_fire.png)
+    - Import from addon option
+    ![blender import screen](images/import_quill.png)
+    - Import the json file from quill
+    ![blender quill.json screen](images/import_fire.png)
 
 It should look like this
 ![blender result with scene imported](images/quillscene.png)
@@ -180,3 +183,41 @@ In blender
 - Go to animation
 - click on play all
 
+If you know about aframe here is the code for the first demo :
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Test glb anim</title>
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+</head>
+
+<body>
+  <a-scene embedded
+    arjs="sourceType: webcam; detectionMode: mono_and_matrix; matrixCodeType: 3x3; trackingMethod: best ; changeMatrixMode: modelViewMatrix;"
+    renderer="sortObjects: true; antialias: true; colorManagement: true; logarithmicDepthBuffer: true;"
+    vr-mode-ui="enabled: false" smooth=" true" smoothCount="5" smoothTolerance=".05" smoothThreshold="5"
+    sourceWidth="800" sourceHeight="600" displayWidth="1280" displayHeight="720">
+
+    <a-assets>
+      <a-asset-item id="model" src="./quill.glb"></a-asset-item>
+    </a-assets>
+
+
+    <a-marker type='barcode' value='0'>
+  
+        <a-entity scale=".5 .5 .5" rotation="270 0 0" gltf-model="#model" animation-mixer></a-entity>
+      
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
+
+</html>
+```
+Have fun !
