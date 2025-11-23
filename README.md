@@ -3,8 +3,9 @@
 Procedure and script to turn a Quill (VR drawing app) animation into a glb file
 
 See the AR example of a simple fire animation made by Camille Lapelerie
-![qr code](images/qr-code.png)
-![ar marker](images/0.png)
+
+<img src="images/qr-code.png" width="300">
+<img src="images/0.png" width="300">
 
 
 # Import quill into blender
